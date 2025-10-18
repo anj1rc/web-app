@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow 0.15s ease, transform 0.12s ease;
+}
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+
+@media (max-width: 900px) {
+  .listing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .listing-grid { grid-template-columns: 1fr; }
+}
+
+.card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mt-3 { margin-top: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-gray-500 { color: #6b7280; }
+.text-gray-600 { color: #4b5563; }
+.font-medium { font-weight: 500; }
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  max-width: 1200px;
+  margin: 0 auto 1rem auto;
+}
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.site-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+.site-nav button {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+}
+
+.landing-hero {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.landing-hero p { max-width: 60ch; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2rem;
+  align-items: center;
+}
+.hero-title { font-size: 3rem; line-height: 1; margin: 0; font-weight: 800; color: var(--color-primary); }
+.hero-sub { font-size: 1.125rem; color: var(--color-muted); margin-top: 8px; }
+.hero-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-image { order: -1; }
+}
+
+@media (max-width: 700px) {
+  .site-header { padding: 0.5rem; }
+  .landing-hero { padding: 2rem 0; align-items: center; text-align: center; }
+}
+
+:root {
+  --color-primary: #646cff;
+  --color-primary-600: #535bf2;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-muted: #6b7280;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: #213547;
+}
+
+.primary-button {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary-button:hover { background: var(--color-primary-600); }
+
+.app-container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+
+.color-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: middle; margin-right: 6px; }
+.color-label { vertical-align: middle; color: var(--color-muted); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.why-card { display: flex; gap: 12px; align-items: center; }
+.why-icon { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; background: rgba(100,108,255,0.08); color: var(--color-primary); border-radius: 10px; }
+
+@media (max-width: 700px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+.order-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.order-image { width: 100%; height: 100%; }
+.order-form { width: 100%; }
+
+@media (max-width: 800px) {
+  .order-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #121212;
+    color: rgba(255,255,255,0.92);
+  }
+}
