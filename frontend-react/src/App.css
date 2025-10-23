@@ -139,8 +139,122 @@
 }
 
 @media (max-width: 700px) {
-  .site-header { padding: 0.5rem; }
+  /* Make header act as a bottom nav on small screens */
+  .site-header {
+    padding: 0.5rem 0.75rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+    background: var(--color-surface);
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 -6px 18px rgba(0,0,0,0.04);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Hide the title to save horizontal space on very small screens */
+  .site-title { display: none; }
+
+  /* Make nav buttons spread evenly and easier to tap */
+  .site-nav {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .site-nav button {
+    flex: 1 1 auto;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Add bottom padding so page content isn't covered by the fixed nav */
+  body { padding-bottom: 4.5rem; }
+
   .landing-hero { padding: 2rem 0; align-items: center; text-align: center; }
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.modal-content {
+  background: var(--color-surface);
+  padding: 1.25rem;
+  border-radius: 12px;
+  max-width: 720px;
+  width: calc(100% - 2rem);
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Sidepanel styles */
+.sidepanel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 55;
+}
+.sidepanel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 360px;
+  background: var(--color-surface);
+  box-shadow: 6px 0 24px rgba(0,0,0,0.06);
+  padding: 1rem;
+  z-index: 56;
+  overflow: auto;
+}
+.sidepanel-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  /* On mobile, sidepanel slides up from bottom */
+  .sidepanel {
+    left: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    height: auto;
+    max-height: 32vh; /* don't take too much vertical space */
+    min-height: 18vh;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.08);
+    transition: transform 220ms ease, opacity 180ms ease;
+    transform-origin: left bottom;
+  }
 }
 
 :root {
