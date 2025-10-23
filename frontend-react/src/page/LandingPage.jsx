@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PrimaryButton from '../components/primarybutton'
+import Modal from '../components/modal'
+import Sidepanel from '../components/sidepanel'
 
 const icons = [
   {
@@ -37,6 +39,8 @@ const icons = [
 ]
 
 function LandingPage({ onBrowse }) {
+  const [isModalOpen, setModalOpen] = useState(false)
+  const [isPanelOpen, setPanelOpen] = useState(false)
   const heroImage = new URL('../assets/car-gallery/car-shop.jpg', import.meta.url).href
 
   return (
@@ -49,6 +53,8 @@ function LandingPage({ onBrowse }) {
               <p className="hero-sub">Premium used cars and trusted service. Quick searches, transparent pricing, and flexible financing to get you on the road quickly.</p>
               <div style={{marginTop: 16}}>
                 <PrimaryButton onClick={onBrowse}>Browse Cars</PrimaryButton>
+                <PrimaryButton onClick={() => setModalOpen(true)} style={{marginLeft: 12}}>Modal</PrimaryButton>
+                <PrimaryButton onClick={() => setPanelOpen(true)} style={{marginLeft: 12}}>Side Panel</PrimaryButton>
               </div>
             </div>
 
@@ -83,6 +89,12 @@ function LandingPage({ onBrowse }) {
           <p className="text-sm text-gray-600">© {new Date().getFullYear()} Rico Cars — All rights reserved.</p>
         </div>
       </footer>
+      <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
+        {/* Empty by design */}
+      </Modal>
+      <Sidepanel open={isPanelOpen} onClose={() => setPanelOpen(false)}>
+        {/* Empty by design */}
+      </Sidepanel>
     </div>
   )
 }
